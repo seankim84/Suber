@@ -18,9 +18,11 @@
   },
   "dependencies": {
     "cors": "^2.8.4",
+    "graphql-tools": "^3.1.1",
     "graphql-yoga": "^1.16.1",
     "helmet": "^3.13.0",
     "logger": "^0.0.1",
+    "merge-graphql-schemas": "^1.5.3",
     "morgan": "^1.9.0"
   }
 }
