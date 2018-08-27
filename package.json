@@ -5,5 +5,15 @@
   "main": "index.js",
   "repository": "https://github.com/seankim84/Nuber",
   "author": "SeanKim <sean.kim84@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^10.9.2",
+    "nodemon": "^1.18.3",
+    "ts-node": "^7.0.1",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.0.1"
+  },
+  "scripts": {
+    "dev":"cd src && nodemon --exec ts-node index.ts -e ts,graphql" 
+  }
 }
