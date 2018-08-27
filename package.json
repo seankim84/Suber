@@ -7,9 +7,6 @@
   "author": "SeanKim <sean.kim84@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/cors": "^2.8.4",
-    "@types/helmet": "^0.0.39",
-    "@types/morgan": "^1.7.35",
     "@types/node": "^10.9.2",
     "nodemon": "^1.18.3",
     "ts-node": "^7.0.1",
