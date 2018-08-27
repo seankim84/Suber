@@ -1,0 +1,9 @@
+{
+  "name": "Nuber",
+  "version": "1.0.0",
+  "description": "Uber Clone with React,React-Native, GraphQL(lang: TypeScript)",
+  "main": "index.js",
+  "repository": "https://github.com/seankim84/Nuber",
+  "author": "SeanKim <sean.kim84@gmail.com>",
+  "license": "MIT"
+}
