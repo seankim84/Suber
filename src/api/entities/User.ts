@@ -1,4 +1,4 @@
-import {} from 'class-validator'
+import { IsEmail } from 'class-validator'
 import { BaseEntity, Column, CreateDateColumn ,Entity, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 
 
@@ -33,8 +33,28 @@ class User extends BaseEntity {
   @Column({ type: "text" })
   profilePhoto: string;
 
+  @Column({ type: "boolean", default: "false" })
+  isDriving: boolean;
+
+  @Column({ type: "boolean", default: "false" })
+  isRiding: boolean;
+
+  @Column({ type: "boolean", default: "false" })
+  isTaken: boolean;
+
+  @Column({ type: "double precision", default: "0" })
+  lastLng: number;
+
+  @Column({ type: "double precision", default: "0" })
+  lastLat: number;
+
+  @Column({ type: "double precision", default: "0" })
+  lastOrientation: number;
+
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
   @CreateDateColumn() createAt: string;
   @UpdateDateColumn() updateAt: string;
 }
-
-export default User;
