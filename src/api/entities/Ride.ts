@@ -8,6 +8,8 @@ import {
 
 } from "typeorm";
 
+import {rideStatus} from '../../types/types';
+
 @Entity()
 class Ride extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -28,25 +30,25 @@ class Ride extends BaseEntity {
   @Column({ type: "double precision" })
   pickUpLat: number;
 
-  @Column({type: "double precision"})
+  @Column({ type: "double precision" })
   pickUpLng: number;
 
-  @Column({type: "text"})
+  @Column({ type: "text" })
   dropOffAddress: string;
 
-  @Column({type: "double precision", default: 0})
+  @Column({ type: "double precision", default: 0 })
   dropOffLat: number;
 
-  @Column({type: "double precision", default: 0})
+  @Column({ type: "double precision", default: 0 })
   dropOffLng: number;
 
-  @Column({type: "double precision", default: 0})
+  @Column({ type: "double precision", default: 0 })
   price: number;
 
-  @Column({type: "text"})
+  @Column({ type: "text" })
   distance: string;
 
-  @Column({type: "text"})
+  @Column({ type: "text" })
   duration: string;
 
   @CreateDateColumn()
