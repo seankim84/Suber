@@ -7,9 +7,17 @@ import {
     Column, 
     CreateDateColumn,
     Entity,
+    ManyToOne,
+    OneToMany,
     PrimaryGeneratedColumn,
-    UpdateDateColumn
+    UpdateDateColumn,
+    
+    
 } from 'typeorm';
+
+import Chat from './Chat';
+import Message  from './Message';
+
 
 const BCRYPT_ROUNDS = 10;
 
@@ -84,6 +92,12 @@ class User extends BaseEntity {
   private hashPassword(password: string): Promise <string>  {
     return bcrypt.hash(password, BCRYPT_ROUNDS);
 } 
+
+  @ManyToOne(type => Chat, chat => chat.participants)
+  chat: Chat;
+
+  @OneToMany(type => Message, message => message.user)
+  messages: Message[];
 
   @CreateDateColumn() createAt: string;
   @UpdateDateColumn() updateAt: string;
