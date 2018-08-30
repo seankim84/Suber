@@ -92,6 +92,9 @@ class User extends BaseEntity {
     return bcrypt.hash(password, BCRYPT_ROUNDS);
 } 
 
+  @Column({ type: "text", nullable: true})
+  fbId: string;
+
   @ManyToOne(type => Chat, chat => chat.participants)
   chat: Chat;
 
@@ -100,6 +103,7 @@ class User extends BaseEntity {
 
   @OneToMany(type =>  Verification, verification => verification.user)
   verifications: Verification[];
+
 
   @OneToMany(type => Ride, ride => ride.passenger)
   ridesAsPassenger:  Ride[];
