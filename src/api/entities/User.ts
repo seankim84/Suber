@@ -17,7 +17,8 @@ import {
 
 import Chat from './Chat';
 import Message  from './Message';
-
+import Ride from './Ride';
+import Verification from './Verifictaion';
 
 const BCRYPT_ROUNDS = 10;
 
@@ -86,8 +87,6 @@ class User extends BaseEntity {
         this.password = hashedPassword;
       }
   }
-  
-  
 
   private hashPassword(password: string): Promise <string>  {
     return bcrypt.hash(password, BCRYPT_ROUNDS);
@@ -98,6 +97,15 @@ class User extends BaseEntity {
 
   @OneToMany(type => Message, message => message.user)
   messages: Message[];
+
+  @OneToMany(type =>  Verification, verification => verification.user)
+  verifications: Verification[];
+
+  @OneToMany(type => Ride, ride => ride.passenger)
+  ridesAsPassenger:  Ride[];
+
+  @ManyToOne(type => Ride, ride => ride.driver)
+  ridesAsDriver: Ride[];
 
   @CreateDateColumn() createAt: string;
   @UpdateDateColumn() updateAt: string;
