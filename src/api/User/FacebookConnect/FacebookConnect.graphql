@@ -4,7 +4,7 @@ type FacebookConnectResponse  {
     token: String
     
 }
-
+    
 type Mutaion {
     FacebookConnect(
         firstName: String!
