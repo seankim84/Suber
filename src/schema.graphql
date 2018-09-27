@@ -50,7 +50,7 @@ type FacebookConnectResponse {
   token: String
 }
 
-type Mutaion {
+type Mutation {
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
 }
 
@@ -74,7 +74,7 @@ type User {
   lastOrientation: Float
   fbId: String
   chat: Chat
-  message: [Message]
+  messages: [Message]
   verifications: [Verification]
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]

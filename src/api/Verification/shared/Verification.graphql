@@ -1,10 +1,10 @@
-type Verification{
-    id: Int!
-    target: String! #type 이란 단어는 이미 JS에서 쓰고 있다.
-    payload: String! # = key
-    key: String! 
-    used: Boolean!
-    user: User!
-    createdAt: String!
-    updatedAt: String
+type Verification {
+  id: Int!
+  target: String! #type 이란 단어는 이미 JS에서 쓰고 있다.
+  payload: String! # = key
+  key: String!
+  used: Boolean!
+  user: User!
+  createdAt: String!
+  updatedAt: String
 }
