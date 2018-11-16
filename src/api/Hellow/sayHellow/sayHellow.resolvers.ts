@@ -1,11 +1,11 @@
-import { Greeting } from '../../../types/graph';
+import { SayHellowQueryArgs, sayHellowResponse } from "../../../types/graph";
 
 const resolvers = {
     Query: {
-        sayHellow: () : Greeting => {
+        sayHellow: (_, args:SayHellowQueryArgs) : sayHellowResponse => { //미리 타입설정가능
             return  {
                 error: false,
-                text: "I love you"
+                text: `Hellow ${ args.name }`
             };
         }
         
