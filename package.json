@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Uber Clone with React,React-Native, GraphQL(lang: TypeScript)",
   "main": "index.js",
-  "repository": "https://github.com/seankim84/Nuber",
+  "repository": "https://github.com/seankim84/Suber",
   "author": "SeanKim <sean.kim84@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "predev": "yarn run types",
-    "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql",
+    "dev": "cd src && nodemon --exec ts-node index.ts -e ts.graphql",
     "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
     "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts "
   },
