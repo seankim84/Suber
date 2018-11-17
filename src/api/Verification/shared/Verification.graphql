@@ -7,7 +7,3 @@ type Verification { #Verification 이기 때문에 모든 값은 필수로 지�
     createdAt: String!
     updatedAt: String!
 }
-
-type Query {
-    verification: Verification
-}

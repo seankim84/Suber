@@ -32,11 +32,11 @@ class Verification extends BaseEntity {
   @CreateDateColumn() createAt: string;
   @UpdateDateColumn() updateAt: string;
 
-  @BeforeInsert()
+  @BeforeInsert() // beforeInsert로 함수를 Entity에 포함할 함수를 만들 수 있다.
   createKey(): void {
     if(this.target === PHONE){
       this.key = Math.floor(Math.random() * 100000).toString()
-    } else {
+    } else if(this.target === EMAIL){
       this.key = Math.random()
       .toString(36)
       .substr(2);
