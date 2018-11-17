@@ -1,8 +1,0 @@
-type sayHellowResponse  {
-    text: String!
-    error: Boolean!
-}
-
-type Query{
-    sayHellow(name:String!): sayHellowResponse!
-}

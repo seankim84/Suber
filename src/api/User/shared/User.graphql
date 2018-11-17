@@ -1,0 +1,25 @@
+type User  {
+    id: Int!
+    email: String
+    firstName: String!
+    lastName: String!
+    age: Int!
+    password: String
+    verifiedEmail: Boolean!
+    phoneNumber: String
+    verifiedPhoneNumber: String!   
+    profilePhoto: String! 
+    createdAt: String!
+    updatedAt: String
+    fullName: String
+    isDriving: Boolean!
+    isRiding: Boolean!
+    isTaken: Boolean!
+    lastLng: Float
+    lastLat: Float
+    lastOrientation: Float!
+}
+
+type Query {
+    user: User
+}
