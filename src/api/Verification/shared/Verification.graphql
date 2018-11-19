@@ -3,8 +3,7 @@ type Verification { #Verification 이기 때문에 모든 값은 필수로 지�
     target: String!
     payload: String! # like a key   
     key: String!
-    used: Boolean!
-    user: User!
+    verified: Boolean!
     createdAt: String!
     updatedAt: String!
 }
