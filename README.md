@@ -4,7 +4,7 @@
 
  ## Resolvers
 
-###Public Resolvers:
+### Public Resolvers:
 
 - [ ] Sign In / Sign Up with Facebook
 - [ ] Sign In with Email
@@ -12,7 +12,7 @@
 - [ ] Complete Phone Number Verification
 - [ ] Sign Up with Email
 ---
-###Private Resolvers:
+### Private Resolvers:
 
 - [ ] Verify Email
 - [ ] Get my Profile

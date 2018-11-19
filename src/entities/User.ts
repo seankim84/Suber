@@ -26,9 +26,9 @@ const BCRYPT_ROUNDS = 10; // 총 몇번을 암호화 할것인지에 대한 선�
 class User extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
-  @Column({ type: "text", unique: true })
+  @Column({ type: "text", nullable: true })
   @IsEmail()
-  email: string;
+  email: string | null;
 
   @Column({ type: "boolean", default: false })
   verifiedEmail: boolean;
@@ -39,17 +39,20 @@ class User extends BaseEntity {
   @Column({ type: "text" })
   lastName: string;
 
-  @Column({ type: "int" })
+  @Column({ type: "int", nullable: true })
   age: number;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   password: string;
 
-  @Column({ type: "text" })
+  @Column({ type: "text", nullable: true })
   phoneNumber: string;
 
   @Column({ type: "boolean", default: false })
   verifiedPhoneNumber: boolean;
+
+  @Column({ type: 'text', nullable: true})
+  fbId: string;
 
   @Column({ type: "text" })
   profilePhoto: string;
@@ -99,7 +102,7 @@ class User extends BaseEntity {
   @BeforeUpdate()
   async savePassword(): Promise<void> {
     if(this.password){
-        const hashedPassword = await this.hashPassword((this.password)) //아래의 hashPassword function 작업이 끝날때까지 기다린다.
+        const hashedPassword = await this.hashPassword(this.password) //아래의 hashPassword function 작업이 끝날때까지 기다린다.
         this.password = hashedPassword;
     }
   } 

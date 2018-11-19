@@ -45,11 +45,11 @@ class Ride extends BaseEntity {
     @Column({type: "text"})
     distance:  string;
 
-    @ManyToOne(type => User, user => user.ridesAsPassenger)
-    passenger: User
+    @ManyToOne(type => User, user => user.ridesAsPassenger) // User.ts에서 rideAsPassenger가 정의
+    passenger: User;
     
     @ManyToOne(type => User, user => user.ridesAsDriver)
-    driver: User
+    driver: User;
 
     @CreateDateColumn() createdAt:string;
     
