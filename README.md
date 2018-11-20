@@ -15,7 +15,7 @@
 
 ### Authentication
 - [x] Verify Email
-- [ ] Get my Profile
+- [x] Get my Profile
 
 ### Private Resolvers:
 
