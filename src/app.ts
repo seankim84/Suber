@@ -31,9 +31,9 @@ class App {
         if(token){
             const user = await decodeJWT(token);
             if(user){
-
+                req.user = user;
             } else {
-
+                req.user = undefined;
             }
         }
         next(); //middleware 시작
