@@ -1,8 +1,9 @@
 import createJWT from "../../../utils/createJWT";
 import User from '../../../entities/User';
+import Verification from "../../../entities/Verification";
 import { EmailSignUpMutationArgs, EmailSignUpResponse } from '../../../types/graph';
 import { Resolvers } from "../../../types/resolvers";
-
+import { sendVerificationEmail } from "../../../utils/sendEmail";
 
 const resolvers: Resolvers = {
     Mutation: {
@@ -19,13 +20,35 @@ const resolvers: Resolvers = {
                         error: "You Should Login Instead",
                         token: null
                     };
-                } else {
-                    const newUser = await User.create({...args}).save();
-                    const token = createJWT(newUser.id);
-                    return {
-                        ok: true,
-                        error: null,
-                        token
+                } else {   
+                    const phoneVerification = await Verification.findOne({
+                        payload: args.phoneNumber, 
+                        verified: true
+                    });
+                    if(phoneVerification){
+                        const newUser = await User.create({ ...args }).save();
+                        if (newUser.email) {
+                            const emailVerification = await Verification.create({
+                                payload: newUser.email, 
+                                target: "EMAIL"
+                            }).save();
+                            await sendVerificationEmail(
+                                newUser.fullName, 
+                                emailVerification.key
+                            )
+                        }
+                        const token = createJWT(newUser.id);
+                        return {
+                            ok: true,
+                            error: null,
+                            token
+                        }
+                    } else {
+                        return {
+                            ok: false,
+                            error: "You haven't verified your phoneNumber",
+                            token: null
+                        }
                     }
                 }
             }catch(error){

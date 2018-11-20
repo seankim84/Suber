@@ -5,7 +5,7 @@ const twilioClient = Twilio(
     process.env.TWILIO_TOKEN
 );
 
-export const sendSMS = (to: string, body: string) => {
+ const sendSMS = (to: string, body: string) => {
     return twilioClient.messages.create({
         body,
         to,

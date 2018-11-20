@@ -14,12 +14,14 @@
 ---
 
 ### Authentication
-- [x] Verify Email
-- [x] Get my Profile
+
+- [x] Generate JWT
+- [x] Verify JWT
+
 
 ### Private Resolvers:
-
-
+- [x] Get my Profile
+- [x] Request Email Verification
 - [ ] Update my Profile
 - [ ] Toggle Driving Mode
 - [ ] Report Location / Orientation
