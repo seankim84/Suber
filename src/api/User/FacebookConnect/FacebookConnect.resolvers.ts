@@ -6,8 +6,8 @@ import {
   FacebookConnectResponse
 } from "../../../types/graph";
 
-
 const resolvers: Resolvers = {
+
   Mutation: {
       FacebookConnect: async (_, args: FacebookConnectMutationArgs
       ): Promise<FacebookConnectResponse> => { // typeorm 에 무언가를 생성하는방법
