@@ -6,7 +6,6 @@ import schema from './schema';
 import { GraphQLServer } from "graphql-yoga";
 import { NextFunction, Response } from 'express-serve-static-core';
 
-
 class App {
     public app : GraphQLServer;
     constructor(){
