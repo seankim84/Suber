@@ -23,11 +23,12 @@
 - [x] Get my Profile
 - [x] Request Email Verification
 - [x] Update my Profile
-- [ ] Toggle Driving Mode
-- [ ] Report Location / Orientation
-- [ ] Add Place
+- [x] Toggle Driving Mode
+- [x] Report Location / Orientation
+- [x] Add Place
 - [ ] Edit Place
 - [ ] Delete Place
+- [ ] Get My place
 - [ ] See Nearby Drivers
 - [ ] Subscribe to Nearby Drivers
 - [ ] Request a  Ride
