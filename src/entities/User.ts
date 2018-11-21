@@ -1,26 +1,23 @@
-import bcrypt from 'bcrypt';
-import { IsEmail } from 'class-validator'
-import { 
-    BaseEntity, 
-    BeforeInsert, 
-    BeforeUpdate, 
-    Column, 
-    CreateDateColumn, 
-    Entity,
-    ManyToOne,
-    OneToMany, 
-    PrimaryGeneratedColumn, 
-    UpdateDateColumn,
-   
-    } from 'typeorm';
-
-import Chat from './Chat';
-import Message from './Message';
-import Place from './Place';
+import bcrypt from "bcrypt";
+import { IsEmail } from "class-validator";
+import {
+  BaseEntity,
+  BeforeInsert,
+  BeforeUpdate,
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
+} from "typeorm";
+import Chat from "./Chat";
+import Message from "./Message";
+import Place from "./Place";
 import Ride from "./Ride";
 
-
-const BCRYPT_ROUNDS = 10; // 총 몇번을 암호화 할것인지에 대한 선언
+const BCRYPT_ROUNDS = 10;
 
 @Entity()
 class User extends BaseEntity {
@@ -51,9 +48,6 @@ class User extends BaseEntity {
   @Column({ type: "boolean", default: false })
   verifiedPhoneNumber: boolean;
 
-  @Column({ type: "text", nullable: true })
-  fbId: string;
-
   @Column({ type: "text" })
   profilePhoto: string;
 
@@ -66,7 +60,7 @@ class User extends BaseEntity {
   @Column({ type: "boolean", default: false })
   isTaken: boolean;
 
-  @Column({ type: "double precision", default: 0 }) // double precision은 postgreql에서 사용되는 type 이름이다.
+  @Column({ type: "double precision", default: 0 })
   lastLng: number;
 
   @Column({ type: "double precision", default: 0 })
@@ -74,6 +68,9 @@ class User extends BaseEntity {
 
   @Column({ type: "double precision", default: 0 })
   lastOrientation: number;
+
+  @Column({ type: "text", nullable: true })
+  fbId: string;
 
   @ManyToOne(type => Chat, chat => chat.participants)
   chat: Chat;
@@ -90,6 +87,10 @@ class User extends BaseEntity {
   @OneToMany(type => Place, place => place.user)
   places: Place[];
 
+  @CreateDateColumn() createdAt: string;
+
+  @UpdateDateColumn() updatedAt: string;
+
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }
@@ -102,16 +103,14 @@ class User extends BaseEntity {
   @BeforeUpdate()
   async savePassword(): Promise<void> {
     if (this.password) {
-      const hashedPassword = await this.hashPassword(this.password); //아래의 hashPassword function 작업이 끝날때까지 기다린다.
+      const hashedPassword = await this.hashPassword(this.password);
       this.password = hashedPassword;
     }
   }
+
   private hashPassword(password: string): Promise<string> {
     return bcrypt.hash(password, BCRYPT_ROUNDS);
   }
-
-  @CreateDateColumn() createAt: string;
-  @UpdateDateColumn() updateAt: string;
 }
 
 export default User;
