@@ -1,12 +1,12 @@
 import cleanNullArgs from "../../../utils/cleanNullArg";
-import privateResolver from "src/utils/privateResolver";
+import privateResolver from "../../../utils/privateResolver";
 import User from "../../../entities/User";
 import { Resolvers } from "../../../types/resolvers";
 import { ReportMovementMutationArgs, ReportMovementResponse } from '../../../types/graph';
 
 const resolvers: Resolvers = {
   Mutation: {
-    ReportMovementResponse: privateResolver(
+    ReportMovement: privateResolver(
         async (
             _, 
             args: ReportMovementMutationArgs,

@@ -1,4 +1,4 @@
-import privateResolver from "src/utils/privateResolver";
+import privateResolver from "../../../utils/privateResolver";
 import { Resolvers } from '../../../types/resolvers';
 import { ToggleDrivingModeResponse } from "../../../types/graph";
 import User from "../../../entities/User";

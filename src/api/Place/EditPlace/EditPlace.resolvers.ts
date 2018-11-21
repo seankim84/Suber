@@ -5,7 +5,6 @@ import User from "../../../entities/User";
 import { EditPlaceMutationArgs, EditPlaceResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 
-
 const resolvers: Resolvers = {
     Mutation: {
         EditPlace: privateResolver(async (_, args: EditPlaceMutationArgs, {req}): Promise<EditPlaceResponse> => {
