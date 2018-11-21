@@ -22,7 +22,7 @@
 ### Private Resolvers:
 - [x] Get my Profile
 - [x] Request Email Verification
-- [ ] Update my Profile
+- [x] Update my Profile
 - [ ] Toggle Driving Mode
 - [ ] Report Location / Orientation
 - [ ] Add Place
