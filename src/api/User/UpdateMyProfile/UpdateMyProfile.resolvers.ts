@@ -1,3 +1,4 @@
+import cleanNullArgs from "../../../utils/cleanNullArg";
 import privateResolver from "../../../utils/privateResolver";
 import User from "../../../entities/User";
 import { Resolvers } from "../../../types/resolvers";
