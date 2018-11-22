@@ -15,9 +15,13 @@ class App {
         this.app = new GraphQLServer({
             schema,
             context: req => {
+                const { connection: { context = null } = {}} = req; //context에 default value로 null을 준다.
                 return {
                     req: req.request,
-                    pubSub: this.pubSub
+                    pubSub: this.pubSub,
+                    context
+                    // req.request 방식이 아닌, req.connection 방식이다.(완전히 다른것!)
+                // HTTP Request가 아닌 connection은 webSocket connection이다.
                 }// context란 resolver로 넘길 것들의 모임이다
             }
         })
