@@ -31,9 +31,9 @@
 - [x] Get My place
 - [x] See Nearby Drivers
 - [x] Subscribe to Nearby Drivers
-- [ ] Request a  Ride
-- [ ] Get Nearvy Ride Requests
-- [ ] Subscribe to Nearby Ride Requests
+- [x] Request a  Ride
+- [x] Get Nearvy Ride Requests
+- [x] Subscribe to Nearby Ride Requests
 - [ ] Subscribe to Ride Status
 - [ ] Get Chat Room Messages
 - [ ] Subscribes to Chat Room Messages
