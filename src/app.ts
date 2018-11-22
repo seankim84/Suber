@@ -3,17 +3,21 @@ import decodeJWT from "./utils/decodeJWT";
 import helmet from 'helmet';
 import logger from 'morgan'; // 웹 요청이 들어왔을때, 로그를 출력하는 미들웨어
 import schema from './schema';
-import { GraphQLServer } from "graphql-yoga";
+import { GraphQLServer, PubSub } from "graphql-yoga";
 import { NextFunction, Response } from 'express-serve-static-core';
 
 class App {
     public app : GraphQLServer;
+    public pubSub: any;
     constructor(){
+        this.pubSub = new PubSub();
+        this.pubSub.ee.setMaxListeners(99);
         this.app = new GraphQLServer({
             schema,
             context: req => {
                 return {
-                    req: req.request
+                    req: req.request,
+                    pubSub: this.pubSub
                 }// context란 resolver로 넘길 것들의 모임이다
             }
         })
