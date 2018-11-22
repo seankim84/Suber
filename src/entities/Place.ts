@@ -29,8 +29,7 @@ class Place extends BaseEntity {
   isFav: boolean;
 
   @Column({ nullable: true })
-  userId: number; //단순히 user 뒤에 Id만을 붙인것으로 전체 relateion을 불러올필요가 없다.
-  // 아래 user에서 id 값을 받아온다.
+  userId: number;
 
   @ManyToOne(type => User, user => user.places)
   user: User;

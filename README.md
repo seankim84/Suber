@@ -1,6 +1,6 @@
 # Suber-server
 
- Server for the (S)Uber Clone Course on Nomad Academy. GraphQL, Typescript, NodeJS
+ Server with GraphQL, Typescript, NodeJS
 
  ## Resolvers
 
@@ -28,7 +28,7 @@
 - [x] Add Place
 - [x] Edit Place
 - [x] Delete Place
-- [ ] Get My place
+- [x] Get My place
 - [ ] See Nearby Drivers
 - [ ] Subscribe to Nearby Drivers
 - [ ] Request a  Ride

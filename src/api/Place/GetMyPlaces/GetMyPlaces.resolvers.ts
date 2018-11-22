@@ -1,7 +1,7 @@
 import User from "../../../entities/User";
+import privateResolver from "../../../utils/privateResolver";
 import { GetMyPlacesResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
-import privateResolver from "../../../utils/privateResolver";
 
 const resolvers: Resolvers = {
   Query: {
