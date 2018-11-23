@@ -1,7 +1,10 @@
 type Chat {
   id: Int!
-  messages: [Message]! # graphql relationship
-  participants:[User]!
+  messages: [Message]
+  passengerId: Int!
+  passenger: User!
+  driverId: Int
+  driver: User!
   createdAt: String!
-  updatedAt: String!
+  updatedAt: String
 }
